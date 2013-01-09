@@ -8,6 +8,7 @@ set exrc
 set secure
 
 set modeline
+set modelines=10
 
 set encoding=utf8
 

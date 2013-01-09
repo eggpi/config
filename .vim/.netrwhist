@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/guilherme/jobs/IC/steiner_cycle_solver.git/src/include/concorde'
-let g:netrw_dirhist_2='/home/guilherme/src/octostasche/app/view'
-let g:netrw_dirhist_3='/home/guilherme/jobs/curriculum.git/pt_BR'
-let g:netrw_dirhist_4='/home/guilherme/.vim'
-let g:netrw_dirhist_5='/home/guilherme/src/clix2/src/pyclix2/playlist'
