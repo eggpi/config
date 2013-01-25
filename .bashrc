@@ -1,0 +1,2 @@
+export CLICOLOR=1
+export HISTSIZE=10000000
