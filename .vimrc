@@ -82,3 +82,7 @@ command -range Foldstrip <line1>,<line2>!paste -s -d " " - | fold -s | sed 's/ $
 
 set statusline=%t%m\ %c\ %l/%L\ (%p%%)\ buffer:\ %n
 set laststatus=2
+
+if argc() == 2
+    silent vertical all
+endif
