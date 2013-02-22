@@ -41,13 +41,13 @@ if has("syntax")
 endif
 
 " Set hotkey for regenerating tags
-map <C-F5> :silent !ctags -f TAGS -R * >/dev/null 2>&1 & <CR>:redraw!<CR>
+map <C-c> :silent !ctags -f TAGS -R * >/dev/null 2>&1 & <CR>:redraw!<CR>
 
 " Set hotkey to toggle NERDTree
-map <C-F6> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " Set hotkey to toggle TagBar
-map <C-F7> :TagbarToggle<CR>
+map <C-b> :TagbarToggle<CR>
 
 " A more intuitive mapping for Y
 map Y y$
