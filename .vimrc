@@ -2,6 +2,7 @@
 " Guilherme P. Gonçalves <guilherme.p.gonc (_at_) gmail (_dot_) com>
 
 set nocompatible " VIM POWER!!!!
+filetype off
 
 " Enable parsing .vimrc in the current directory.
 set exrc
@@ -86,3 +87,18 @@ set laststatus=2
 if argc() == 2
     silent vertical all
 endif
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+Bundle 'Shougo/neocomplcache'
+
+" neocomplcache: launch on vim startup.
+let g:neocomplcache_enable_at_startup = 1
+
+" neocomplcache: autocomplete on tab
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
