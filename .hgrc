@@ -1,0 +1,19 @@
+[extensions]
+mq =
+hgshelve =
+record =
+purge =
+color =
+pager =
+histedit =
+
+[diff]
+git = 1
+unified = 8
+
+[ui]
+username = "Guilherme Goncalves <ggoncalves@mozilla.com>"
+editor = /usr/bin/vim
+
+[pager]
+pager = LESS='FRX' less
