@@ -1,5 +1,6 @@
 export CLICOLOR=1
 export HISTSIZE=10000000
+export EDITOR=vim
 
 function hgdl() {
     hg diff "$@" | less
