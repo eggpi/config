@@ -12,7 +12,7 @@ git = 1
 unified = 8
 
 [ui]
-username = "Guilherme Goncalves <ggoncalves@mozilla.com>"
+username = Guilherme Goncalves <ggoncalves@mozilla.com>
 editor = /usr/bin/vim
 
 [pager]
