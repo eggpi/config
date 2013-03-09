@@ -1,6 +1,7 @@
 export CLICOLOR=1
 export HISTSIZE=10000000
 export EDITOR=vim
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 function hgdl() {
     hg diff "$@" | less
