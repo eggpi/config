@@ -1,0 +1,7 @@
+[user]
+	name = Guilherme Gonçalves
+	email = guilherme.p.gonc@gmail.com
+[core]
+	editor = /usr/bin/vim
+[color]
+	ui = true
