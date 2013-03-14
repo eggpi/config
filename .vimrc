@@ -102,3 +102,5 @@ let g:neocomplcache_enable_at_startup = 1
 
 " neocomplcache: autocomplete on tab
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+set number
