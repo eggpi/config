@@ -28,3 +28,13 @@ set -o vi
 
 # clear screen with C-l on insert mode
 bind -m vi-insert "\C-l":clear-screen
+
+function mozconfig() {
+    file="$HOME/.mozconfigs/$1"
+    if [ -f "$file" ]; then
+        export MOZCONFIG="$file"
+        echo "Set MOZCONFIG to $file"
+    else
+        echo "Can't find mozconfig at $file!"
+    fi
+}
