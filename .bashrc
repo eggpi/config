@@ -30,11 +30,15 @@ set -o vi
 bind -m vi-insert "\C-l":clear-screen
 
 function mozconfig() {
-    file="$HOME/.mozconfigs/$1"
-    if [ -f "$file" ]; then
-        export MOZCONFIG="$file"
-        echo "Set MOZCONFIG to $file"
+    if [ $# -eq 0 ]; then
+        echo "$MOZCONFIG"
     else
-        echo "Can't find mozconfig at $file!"
+        file="$HOME/.mozconfigs/$1"
+        if [ -f "$file" ]; then
+            export MOZCONFIG="$file"
+            echo "Set MOZCONFIG to $file"
+        else
+            echo "Can't find mozconfig at $file!"
+        fi
     fi
 }
