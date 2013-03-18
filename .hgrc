@@ -6,6 +6,7 @@ purge =
 color =
 pager =
 histedit =
+trychooser = $HOME/bin/trychooser
 
 [diff]
 git = 1
