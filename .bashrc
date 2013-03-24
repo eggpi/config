@@ -3,7 +3,7 @@ export HISTSIZE=10000000
 export EDITOR=vim
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
-alias ?="echo $?"
+alias ?='echo $?'
 
 function hgdl() {
     hg diff "$@" | less
