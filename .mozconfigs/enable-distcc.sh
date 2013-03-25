@@ -6,10 +6,10 @@ DISTCC_HOSTS="--randomize bangles.mv.mozilla.com/16 gandalf.mv.mozilla.com/16"
 
 # Also use localhost. We limit slots to six because the localhost also needs to
 # do all the pre-processing, so if it is overloaded it wont be able to send out jobs fast enough
-DISTCC_HOSTS="$DISTCC_HOSTS localhost/6 --localslots=6 --localslots_cpp=10"
+#DISTCC_HOSTS="$DISTCC_HOSTS localhost/6 --localslots=6 --localslots_cpp=10"
 # Alternately: Don't use localhost at all except for preprocessing (do as much
 # work as possible on other machines)
-## DISTCC_HOSTS="$DISTCC_HOSTS --localslots_cpp=10"
+DISTCC_HOSTS="$DISTCC_HOSTS --localslots_cpp=8"
 
 export DISTCC_HOSTS
 # Retry aggressively when no machines are available (default is 1000)
