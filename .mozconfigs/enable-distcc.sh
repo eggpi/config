@@ -1,9 +1,8 @@
 # Note if not using ccache your mozconfig needs additional tweaking, see below
 export CCACHE_PREFIX=distcc
 
-# --randomize means spread jobs out evenly over hosts. bangles is the only host
-# right now. It has 8 cores so send up to 16 jobs to it.
-DISTCC_HOSTS="--randomize bangles.mv.mozilla.com/16"
+# --randomize means spread jobs out evenly over hosts.
+DISTCC_HOSTS="--randomize bangles.mv.mozilla.com/16 gandalf.mv.mozilla.com/16"
 
 # Also use localhost. We limit slots to six because the localhost also needs to
 # do all the pre-processing, so if it is overloaded it wont be able to send out jobs fast enough
