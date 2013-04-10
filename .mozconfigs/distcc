@@ -1,5 +1,5 @@
-CC="clang -target x86_64-apple-darwin -fcolor-diagnostics -Qunused-arguments"
-CXX="clang++ -target x86_64-apple-darwin -fcolor-diagnostics -Qunused-arguments"
+export CC="clang -target x86_64-apple-darwin -fcolor-diagnostics -Qunused-arguments"
+export CXX="clang++ -target x86_64-apple-darwin -fcolor-diagnostics -Qunused-arguments"
 ac_add_options --enable-debug
 ac_add_options --enable-warnings-as-errors
 
