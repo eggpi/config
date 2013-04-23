@@ -11,14 +11,14 @@ export CC="$LLVM_HOME/build/Release+Asserts/bin/clang"
 export CXX="$LLVM_HOME/build/Release+Asserts/bin/clang++"
 
 # Add ASan to our compiler flags
-export CFLAGS="-faddress-sanitizer -Dxmalloc=myxmalloc"
-export CXXFLAGS="-faddress-sanitizer -Dxmalloc=myxmalloc"
+export CFLAGS="-fsanitize=address -Dxmalloc=myxmalloc"
+export CXXFLAGS="-fsanitize=address -Dxmalloc=myxmalloc"
 
 # Additionally, we need the ASan flag during linking. Normally, our C/CXXFLAGS would
 # be used during linking as well but there is at least one place in our build where
 # our CFLAGS are not added during linking.
 # Note: The use of this flag causes Clang to automatically link the ASan runtime :)
-export LDFLAGS="-faddress-sanitizer"
+export LDFLAGS="-fsanitize=address"
 
 # Avoid using ASan flags when building host tools like nsinstall
 export HOST_CFLAGS=" "
