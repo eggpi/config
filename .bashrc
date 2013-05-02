@@ -75,3 +75,5 @@ function mozrebase() {
         done
     fi
 }
+
+export GOROOT=/usr/local/Cellar/go/1.0.3/

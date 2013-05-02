@@ -24,6 +24,8 @@ set autoread " Automagically reloads a file if it was externally modified
 set nowrap
 set textwidth=80 " Break long lines at column 80
 
+set rtp+=$GOROOT/misc/vim
+
 " Indentation
 filetype plugin indent on
 
