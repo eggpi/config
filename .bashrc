@@ -60,6 +60,7 @@ function mozrebase() {
         git rebase mozilla-central/master $b
 
         if [ $? != 0 ]; then
+            echo "Aborting rebase"
             git rebase --abort
             failed="$failed $b"
         fi
