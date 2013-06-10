@@ -73,6 +73,7 @@ set shiftwidth=4
 set autowrite
 
 au BufRead,BufNewFile {*.textile} set ft=textile
+au BufRead,BufNewFile {*.jsm} set ft=javascript
 
 call pathogen#infect()
 
