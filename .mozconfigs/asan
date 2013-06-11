@@ -1,4 +1,5 @@
 mk_add_options MOZ_MAKE_FLAGS=-j9
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-@CONFIG_GUESS@-asan
 
 # Enable ASan specific code and build workarounds
 ac_add_options --enable-address-sanitizer
