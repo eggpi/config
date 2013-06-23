@@ -104,6 +104,12 @@ Bundle 'gmarik/vundle'
 
 Bundle 'Shougo/neocomplcache'
 
+" neocomplcache: disable omni completion for python
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.python = ''
+
 " neocomplcache: launch on vim startup.
 let g:neocomplcache_enable_at_startup = 1
 
