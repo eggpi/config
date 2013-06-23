@@ -46,6 +46,10 @@ endif
 " Set hotkey for regenerating tags
 map <C-c> :silent !ctags -f TAGS -R * >/dev/null 2>&1 & <CR>:redraw!<CR>
 
+" Look for tags file starting at the current directoy,
+" ascend all the way to the root
+set tags=./tags;/
+
 " Set hotkey to toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
