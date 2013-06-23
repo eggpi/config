@@ -38,6 +38,8 @@ function mozconfig() {
         file="$HOME/.mozconfigs/$1"
         if [ -f "$file" ]; then
             export MOZCONFIG="$file"
+            export CCACHE_DIR="$HOME/.ccache/$1"
+            ccache -M 4G
             echo "Set MOZCONFIG to $file"
         else
             echo "Can't find mozconfig at $file!"
