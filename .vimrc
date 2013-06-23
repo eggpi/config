@@ -40,7 +40,7 @@ set wildmode=longest,list
 set wildignore+=*.o,*.pyc,*.swp
 
 if has("syntax")
-	syntax on
+    syntax on
 endif
 
 " Set hotkey for regenerating tags
