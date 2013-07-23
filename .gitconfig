@@ -14,3 +14,7 @@
   default-component = Core
   firefox-profile = default
   add-url = False
+[diff]
+  patience = true
+[format-patch]
+  patience = true
