@@ -1,4 +1,6 @@
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-@CONFIG_GUESS@-b2g
+. ~/.mozconfigs/_common
+
+mk_add_options MOZ_OBJDIR=$MOZ_OBJDIR_PATH/obj-@CONFIG_GUESS@-b2g
 mk_add_options MOZ_MAKE_FLAGS="-j9 -s"
 
 ac_add_options --enable-application=b2g
