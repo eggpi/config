@@ -1,0 +1,74 @@
+#!/bin/bash
+
+if [ -z "$MOZTREE" ]; then
+    echo ":: MOZTREE not set, quitting!"
+    exit 1
+fi
+
+if [ -z "$MOZBUILDTREE" ]; then
+    echo ":: MOZBUILDTREE not set, quitting! "
+    exit 1
+fi
+
+if [ "$MOZBUILDTREE" != "$MOZTREE" ]; then
+  branch="buildbranch"
+  ref="$(cd "$MOZTREE" && git rev-parse HEAD)"
+  # Make sure build branch exists
+  if [ ! -d "$MOZBUILDTREE" ]; then
+    echo ":: Creating new $MOZBUILDTREE"
+    _co=HEAD
+    ( cd "$MOZTREE" && git branch -f "$branch" "$_co" )
+    git-new-workdir "$MOZTREE" "$MOZBUILDTREE" "$branch"
+  fi
+  (
+    set -e
+    cd "$MOZTREE"
+    untracked=()
+    while IFS="" read -r file; do
+      untracked[${#untracked[@]}]="$file";
+    done < <(git ls-files -o --exclude-standard)
+    for file in "${untracked[@]}"; do
+      git add "$file" >/dev/null
+    done
+    git diff "$branch" --binary
+    for file in "${untracked[@]}"; do
+      git reset HEAD -- "$file" >/dev/null
+    done
+  ) | (
+    set -e
+    echo ":: Checking out build tree"
+    cd "$MOZBUILDTREE"
+
+    # Some sanity checks, make sure the tree is clean
+    [ "$(git rev-parse --abbrev-ref HEAD)" == "$branch" ]
+    if [ -n "$(git status -s)" ]; then
+        echo "There are uncommited changes to the build tree"
+        git status -s
+
+        for i in $(seq 5 1); do
+            echo -en "\rResetting in $i seconds..."
+            sleep 1
+        done
+
+        echo "Resetting branch $branch"
+        git reset --hard $branch
+    fi
+
+    if read -r firstline; then
+      cat <(echo "$firstline") - | git apply --whitespace=nowarn -
+    fi
+    git reset "$ref"
+    git add .
+    git commit --allow-empty -m "Build commit for $(git rev-parse --abbrev-ref HEAD) @ $(date)"
+  )
+fi
+
+#
+# Do the build if everything succeeded
+#
+retcodes=${PIPESTATUS[@]}
+if [ "$retcodes" == "0 0" ]; then
+  ( cd "$MOZBUILDTREE" && ./mach build "${args[@]}" )
+else
+  echo "Something went wrong, giving up!"
+fi

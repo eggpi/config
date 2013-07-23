@@ -31,6 +31,9 @@ set -o vi
 # clear screen with C-l on insert mode
 bind -m vi-insert "\C-l":clear-screen
 
+export MOZTREE=$HOME/code/mozilla-central.git
+export MOZBUILDTREE=$HOME/code/mozilla-build.git
+
 function mozconfig() {
     if [ $# -eq 0 ]; then
         echo "$MOZCONFIG"
