@@ -9,3 +9,8 @@
 	default = matching
 [diff]
 	tool = vimdiff
+[bz]
+  default-tracker = bugzilla.mozilla.org
+  default-component = Core
+  firefox-profile = default
+  add-url = False
