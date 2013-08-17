@@ -5,18 +5,6 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 alias ?='echo $?'
 
-function hgdl() {
-    hg diff "$@" | less
-}
-
-function hgqdl() {
-    hg qdiff "$@"| less
-}
-
-function hgll() {
-    hg log "$@" | less
-}
-
 function ask() {
     echo -n "$1 [Y/n] "
     read answer && [ -z "$answer" -o "$answer" == "y" ]
