@@ -1,0 +1,21 @@
+function alias_stumbler() {
+    # set power status on the emulator
+    function pstatus() {
+        echo -e "power status $1\n" | nc --close localhost 5554;
+    }
+
+    # set power capacity on the emulator
+    function pcap() {
+        echo -e "power capacity $1\n" | nc --close localhost 5554;
+    }
+
+    # set emulator to use ac power or not
+    function pac() {
+        echo -e "power ac $1\n" | nc --close localhost 5554;
+    }
+}
+
+function alias_wimf() {
+    alias r="./mach run -profile ~/code/gaia/profile/ -jsconsole --runapp WhereIsMyFox?"
+    alias br="(cd ~/code/gaia; make clean && NOFTU=1 make profile) && r"
+}

@@ -39,3 +39,5 @@ function mozconfig() {
 }
 
 export GOPATH=$HOME/code/goworkdir
+
+. $HOME/.bash_moz_aliases
