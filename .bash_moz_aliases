@@ -16,6 +16,12 @@ function alias_stumbler() {
 }
 
 function alias_wimf() {
-    alias r="./mach run -profile ~/code/gaia/profile/ -jsconsole --runapp WhereIsMyFox?"
-    alias br="(cd ~/code/gaia; make clean && NOFTU=1 make profile) && r"
+    alias b="(cd ~/code/gaia; make clean && make profile)"
+
+    alias r="./mach run -profile ~/code/gaia/profile/ -jsconsole"
+    alias rw="r --runapp WhereIsMyFox?"
+
+    alias br="b && r"
+    alias brw="b && rw"
+}
 }
