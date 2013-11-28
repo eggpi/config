@@ -1,5 +1,4 @@
 export CLICOLOR=1
-export HISTSIZE=10000000
 export EDITOR=vim
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -40,5 +39,9 @@ function mozconfig() {
 
 export GOROOT=/usr/local/Cellar/go/1.1/
 export GOPATH=$HOME/code/goworkdir
+
+shopt -s histappend # append to history rather than overwriting
+export HISTSIZE=10000000
+export PROMPT_COMMAND='history -a' # save history on each prompt
 
 . $HOME/.bash_moz_aliases
