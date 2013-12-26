@@ -14,13 +14,13 @@ L_BACKUP_SOURCES_FILE="$L_CONFIG_ROOT/backup_sources"
 L_BACKUP_EXCLUDE_FILE="$L_CONFIG_ROOT/backup_excludes"
 
 # Remote paths for backup locations
-R_BACKUP_DEST_DIR="/media/551597486755/backup"
+R_BACKUP_DEST_DIR="/media/guilherme-backup/backup"
 R_LAST_BACKUP_LINK="$R_BACKUP_DEST_DIR"/last
 
 # Run command in the backup server, if any
 function rcmd() {
     if [ -n "$BACKUP_USER_SERVER" ]; then
-        ssh $BACKUP_USER_SERVER "$@"
+        ssh -n -- $BACKUP_USER_SERVER "$@"
     else
         "$@"
     fi
@@ -37,11 +37,10 @@ function rtol() {
 
 RSYNC_OPTS="--archive
             --executability
-            --progress
             --hard-links
             --human-readable
             --numeric-ids
-            --verbose"
+            --progress"
 
 if [ -f "$L_BACKUP_EXCLUDE_FILE" ]; then
     RSYNC_OPTS="$RSYNC_OPTS --exclude-from=$L_BACKUP_EXCLUDE_FILE"
@@ -58,10 +57,14 @@ fi
 
 while read backup_src to backup_dest; do
     rcmd mkdir -p "$r_backup_dir/$backup_dest"
+    rsync $RSYNC_OPTS \
+        --link-dest="$R_LAST_BACKUP_LINK/$backup_dest" \
+        "$backup_src" "$l_backup_dir/$backup_dest"
+    ok=$?
 
-    if ! rsync $RSYNC_OPTS --link-dest="$R_LAST_BACKUP_LINK/$backup_dest" "$backup_src" "$l_backup_dir/$backup_dest"; then
-        echo "Failed to backup '$backup_src', aborting."
-        exit 1
+    if [ $ok != 0 ]; then
+        echo "Rsync failed for '$backup_src' with status $ok, aborting."
+        exit $ok
     fi
 done < "$L_BACKUP_SOURCES_FILE"
 
