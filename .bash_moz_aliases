@@ -16,13 +16,25 @@ function alias_stumbler() {
 }
 
 function alias_wimf() {
-    alias b="(cd ~/code/gaia; make clean && make profile)"
+    alias b='(cd ~/code/gaia; make clean && make profile)'
+    alias d='(cd ~/code/gaia; make clean && DEBUG=1 DESKTOP=0 make)'
 
-    alias r="./mach run -profile ~/code/gaia/profile/ -jsconsole"
-    alias rw="r --runapp WhereIsMyFox?"
+    alias r='./mach run -profile ~/code/gaia/profile -jsconsole'
+    alias s='./mach run -profile ~/code/gaia/profile-debug -jsconsole'
+
+    alias l="git status --porcelain -uno | grep '\.js$' | cut -d' ' -f3 | xargs jshint | tee jshint.errors"
+    alias la="make lint APP=findmydevice"
+
+    function w() {
+        make webapp-zip APP=$1
+    }
+
+    alias wf="w findmydevice"
+    alias wy="w system"
+    alias ws="w settings"
 
     alias br="b && r"
-    alias brw="b && rw"
+    alias ds="d && s"
 }
 
 function alias_seer() {
