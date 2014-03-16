@@ -1,6 +1,6 @@
 export CLICOLOR=1
 export EDITOR=vim
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.cabal/bin:/usr/local/bin:$PATH"
 
 alias ?='echo $?'
 
