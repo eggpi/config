@@ -1,6 +1,7 @@
 [user]
 	email = guilherme.p.gonc@gmail.com
 	name = Guilherme Goncalves
+	signingkey = 57DBA6E9
 [core]
 	editor = /usr/bin/vim
 [color]
