@@ -39,6 +39,13 @@ function alias_wimf() {
 
     alias br="b && r"
     alias ds="d && s"
+
+    alias ti="make test-integration TEST_FILES=apps/findmydevice/test/marionette/findmydevice_test.js"
+
+    alias f="DEVICE_DEBUG=1 NOFTU=1 make reset-gaia"
+    function i() {
+        make install-gaia APP=$1
+    }
 }
 
 function alias_seer() {
