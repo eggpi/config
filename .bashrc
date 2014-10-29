@@ -49,3 +49,9 @@ export HISTSIZE=10000000
 export PROMPT_COMMAND='history -a' # save history on each prompt
 
 . $HOME/.bash_moz_aliases
+
+function alias_lyra2() {
+    function dis() {
+        lldb --one-line "dis -n $1" ./lyra2
+    }
+}
