@@ -23,7 +23,10 @@ export MOZBUILDTREE=$HOME/code/mozilla-build.git
 
 function mozconfig() {
     if [ $# -eq 0 ]; then
-        echo "$MOZCONFIG"
+        if [ -n "$MOZCONFIG" ]; then
+            echo "$MOZCONFIG"
+            PS1="\w $(basename $MOZCONFIG) \$ "
+        fi
     else
         file="$HOME/.mozconfigs/$1"
         if [ -f "$file" ]; then
@@ -31,6 +34,7 @@ function mozconfig() {
             export CCACHE_DIR="$HOME/.ccache/$1"
             ccache -M 4G
             echo "Set MOZCONFIG to $file"
+            PS1="\w $1 \$ "
         else
             echo "Can't find mozconfig at $file!"
         fi
