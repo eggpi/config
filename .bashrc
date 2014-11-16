@@ -32,7 +32,8 @@ function mozconfig() {
         if [ -f "$file" ]; then
             export MOZCONFIG="$file"
             export CCACHE_DIR="$HOME/.ccache/$1"
-            ccache -M 4G
+            export CCACHE_COMPRESS=1
+            ccache -M 5G
             echo "Set MOZCONFIG to $file"
             PS1="\w $1 \$ "
         else
