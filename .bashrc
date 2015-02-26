@@ -56,3 +56,7 @@ function alias_lyra2() {
         lldb --one-line "dis -n $1" ./lyra2
     }
 }
+
+if [ -n "$VIRTUAL_ENV" ]; then
+    . "$VIRTUAL_ENV"/bin/activate
+fi
