@@ -1,21 +1,20 @@
 [user]
-	email = guilherme.p.gonc@gmail.com
-	name = Guilherme Goncalves
-	signingkey = 57DBA6E9
+    email = guilherme.p.gonc@gmail.com
+    name = Guilherme Goncalves
 [core]
-	editor = /usr/bin/vim
+    editor = vim
 [color]
-	ui = true
+    ui = true
 [push]
-	default = matching
+    default = matching
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [bz]
-  default-tracker = bugzilla.mozilla.org
-  default-component = Core
-  firefox-profile = default
-  add-url = False
+    default-tracker = bugzilla.mozilla.org
+    default-component = Core
+    firefox-profile = default
+    add-url = False
 [diff]
-  patience = true
+    patience = true
 [format-patch]
-  patience = true
+    patience = true
