@@ -79,8 +79,6 @@ set autowrite
 au BufRead,BufNewFile {*.textile} set ft=textile
 au BufRead,BufNewFile {*.jsm} set ft=javascript
 
-call pathogen#infect()
-
 " Spelling options
 set spelllang=pt_br
 highlight clear SpellBad SpellLocal
@@ -95,14 +93,25 @@ if argc() == 2
     silent vertical all
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'Shougo/neocomplcache'
+Plugin 'Shougo/neocomplcache'
+
+Plugin 'vim-scripts/a.vim'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'majutsushi/tagbar'
+
+Plugin 'vim-scripts/Mark'
+
+call vundle#end() " required by Vundle
+filetype plugin indent on " required by Vundle
 
 " neocomplcache: disable omni completion for python
 if !exists('g:neocomplcache_omni_patterns')
