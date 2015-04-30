@@ -50,14 +50,3 @@ function alias_wimf() {
         make install-gaia APP=$1
     }
 }
-
-function alias_seer() {
-    PROFILE_BZ2_PATH=$HOME/code/seer.ffp.tar.bz2
-    PROFILE_DIR_NAME=7ngf1md9.seer
-    PROFILE_PATH=/tmp
-
-    alias b="rm -rf $PROFILE_PATH/$PROFILE_DIR_NAME &&
-             tar -xjf $PROFILE_BZ2_PATH -C $PROFILE_PATH"
-    alias r="./mach run -profile $PROFILE_PATH/$PROFILE_DIR_NAME"
-    alias br="b && r"
-}
