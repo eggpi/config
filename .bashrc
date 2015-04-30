@@ -57,6 +57,21 @@ function alias_lyra2() {
     }
 }
 
-if [ -n "$VIRTUAL_ENV" ]; then
-    . "$VIRTUAL_ENV"/bin/activate
+function is_inside() {
+if [ $1 == / ]; then
+    return 0
+fi
+(while [ $PWD != / ]; do
+    if [ $PWD == $1 -o $PWD/ == $1 ]; then
+        return 0
+    fi
+    cd ..
+done
+return 1) && return 0 || return 1
+}
+
+if [ -n "$VIRTUAL_ENV" -a -n "$TMUX_PANE" ]; then
+    if is_inside "$VIRTUAL_ENV"; then
+        . "$VIRTUAL_ENV"/bin/activate
+    fi
 fi
