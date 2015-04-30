@@ -23,8 +23,11 @@ function alias_wimf() {
     alias b='(cd ~/code/gaia; make clean && make profile)'
     alias d='(cd ~/code/gaia; make clean && DEBUG=1 DESKTOP=0 make)'
 
-    alias r='./mach run -profile ~/code/gaia/profile -jsconsole'
-    alias s='./mach run -profile ~/code/gaia/profile-debug -jsconsole'
+    #alias r='./mach run -profile ~/code/gaia/profile -jsconsole'
+    #alias s='./mach run -profile ~/code/gaia/profile-debug -jsconsole'
+    alias r='/Applications/B2G.app/Contents/MacOS/b2g-bin -profile /Users/Guiherme/code/gaia/profile/ -jsconsole'
+    alias s='/Applications/B2G.app/Contents/MacOS/b2g-bin -profile /Users/Guiherme/code/gaia/profile-debug/ -jsconsole'
+    alias rg='r | grep findmydevice'
 
     alias l="git status --porcelain -uno | grep '\.js$' | cut -d' ' -f3 | xargs jshint | tee jshint.errors"
     alias la="make lint APP=findmydevice"
@@ -40,7 +43,7 @@ function alias_wimf() {
     alias br="b && r"
     alias ds="d && s"
 
-    alias ti="make test-integration TEST_FILES=apps/findmydevice/test/marionette/findmydevice_test.js"
+    alias ti="make test-integration-test APP=findmydevice"
 
     alias f="DEVICE_DEBUG=1 NOFTU=1 make reset-gaia"
     function i() {
