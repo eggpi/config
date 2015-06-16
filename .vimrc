@@ -14,6 +14,7 @@ set modelines=10
 set encoding=utf8
 
 " Backup and history options
+set backup
 set backupdir=~/.vim/backup " Put backup files in another directory.
 set undodir=~/.vim/undodir " Same for undo files.
 set undofile
