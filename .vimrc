@@ -111,6 +111,8 @@ Plugin 'majutsushi/tagbar'
 
 Plugin 'vim-scripts/Mark'
 
+Plugin 'mileszs/ack.vim'
+
 call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
 
