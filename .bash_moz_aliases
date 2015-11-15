@@ -50,3 +50,28 @@ function alias_wimf() {
         make install-gaia APP=$1
     }
 }
+
+MOZCONFIGS_DIR="$HOME/.mozconfigs"
+ALL_MOZCONFIGS=$(find "$MOZCONFIGS_DIR" -type f | xargs basename)
+complete -W "$ALL_MOZCONFIGS" mozconfig
+
+function mozconfig() {
+    if [ $# -eq 0 ]; then
+        if [ -n "$MOZCONFIG" ]; then
+            echo "$MOZCONFIG"
+            PS1="\w $(basename $MOZCONFIG) \$ "
+        fi
+    else
+        file="$MOZCONFIGS_DIR/$1"
+        if [ -f "$file" ]; then
+            export MOZCONFIG="$file"
+            export CCACHE_DIR="$HOME/.ccache/$1"
+            export CCACHE_COMPRESS=1
+            ccache -M 5G
+            echo "Set MOZCONFIG to $file"
+            PS1="\w $1 \$ "
+        else
+            echo "Can't find mozconfig at $file!"
+        fi
+    fi
+}

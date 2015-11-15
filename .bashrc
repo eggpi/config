@@ -18,31 +18,6 @@ set -o vi
 # clear screen with C-l on insert mode
 bind -m vi-insert "\C-l":clear-screen
 
-export MOZTREE=$HOME/code/mozilla-central.git
-export MOZBUILDTREE=$HOME/code/mozilla-build.git
-
-function mozconfig() {
-    if [ $# -eq 0 ]; then
-        if [ -n "$MOZCONFIG" ]; then
-            echo "$MOZCONFIG"
-            PS1="\w $(basename $MOZCONFIG) \$ "
-        fi
-    else
-        file="$HOME/.mozconfigs/$1"
-        if [ -f "$file" ]; then
-            export MOZCONFIG="$file"
-            export CCACHE_DIR="$HOME/.ccache/$1"
-            export CCACHE_COMPRESS=1
-            ccache -M 5G
-            echo "Set MOZCONFIG to $file"
-            PS1="\w $1 \$ "
-        else
-            echo "Can't find mozconfig at $file!"
-        fi
-    fi
-}
-
-export GOROOT=/usr/local/Cellar/go/1.1/
 export GOPATH=$HOME/code/goworkdir
 
 shopt -s histappend # append to history rather than overwriting
@@ -50,12 +25,6 @@ export HISTSIZE=10000000
 export PROMPT_COMMAND='history -a' # save history on each prompt
 
 . $HOME/.bash_moz_aliases
-
-function alias_lyra2() {
-    function dis() {
-        lldb --one-line "dis -n $1" ./lyra2
-    }
-}
 
 function is_inside() {
 if [ $1 == / ]; then
