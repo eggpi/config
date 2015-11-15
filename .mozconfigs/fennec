@@ -1,0 +1,12 @@
+. ~/.mozconfigs/_common
+
+unset CC CXX
+
+mk_add_options MOZ_OBJDIR=$MOZ_OBJDIR_PATH/obj-@CONFIG_GUESS@-android
+
+ac_add_options --with-android-ndk="$HOME/code/android-ndk-r8e"
+ac_add_options --with-android-sdk="$ANDROID_HOME/platforms/android-17"
+
+# android options
+ac_add_options --enable-application=mobile/android
+ac_add_options --target=arm-linux-androideabi
