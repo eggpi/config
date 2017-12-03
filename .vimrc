@@ -40,9 +40,9 @@ set wildmenu
 set wildmode=longest,list
 set wildignore+=*.o,*.pyc,*.swp
 
-if has("syntax")
-    syntax on
-endif
+" if has("syntax")
+"    syntax on
+" endif
 
 " Set hotkey for regenerating tags
 map <C-c> :silent !ctags -f TAGS -R * >/dev/null 2>&1 & <CR>:redraw!<CR>
