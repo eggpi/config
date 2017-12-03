@@ -24,19 +24,17 @@ shopt -s histappend # append to history rather than overwriting
 export HISTSIZE=10000000
 export PROMPT_COMMAND='history -a' # save history on each prompt
 
-. $HOME/.bash_moz_aliases
-
 function is_inside() {
-if [ $1 == / ]; then
-    return 0
-fi
-(while [ $PWD != / ]; do
-    if [ $PWD == $1 -o $PWD/ == $1 ]; then
+    if [ $1 == / ]; then
         return 0
     fi
-    cd ..
-done
-return 1) && return 0 || return 1
+    (while [ $PWD != / ]; do
+        if [ $PWD == $1 -o $PWD/ == $1 ]; then
+            return 0
+        fi
+        cd ..
+    done
+    return 1) && return 0 || return 1
 }
 
 if [ -n "$VIRTUAL_ENV" -a -n "$TMUX_PANE" ]; then
