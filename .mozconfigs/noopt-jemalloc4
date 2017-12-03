@@ -1,7 +1,0 @@
-. ~/.mozconfigs/debug
-
-export CC="/usr/bin/clang"
-export CXX="/usr/bin/clang++"
-mk_add_options MOZ_OBJDIR=$MOZ_OBJDIR_PATH/obj-@CONFIG_GUESS@-noopt-jemalloc4
-ac_add_options --disable-optimize
-MOZ_JEMALLOC4=1

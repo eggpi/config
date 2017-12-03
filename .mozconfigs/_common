@@ -1,8 +1,0 @@
-export CC="clang -fcolor-diagnostics -Qunused-arguments"
-export CXX="clang++ -fcolor-diagnostics -Qunused-arguments"
-export MOZ_OBJDIR_PATH=$HOME/code/objdirs/
-mk_add_options MOZ_MAKE_FLAGS="-j12"
-mk_add_options AUTOCLOBBER=1
-ac_add_options --with-ccache=/usr/local/bin/ccache
-ac_add_options --enable-warnings-as-errors
-ac_add_options --with-google-api-keyfile=$HOME/code/mozilla-central.git/dont-checkin-or-google-will-sue

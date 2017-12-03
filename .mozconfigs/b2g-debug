@@ -1,6 +1,0 @@
-. ~/.mozconfigs/debug
-. ~/.mozconfigs/b2g
-
-ENABLE_MARIONETTE=1
-MARIONETTE_ENABLED=1
-mk_add_options MOZ_OBJDIR=$MOZ_OBJDIR_PATH/obj-@CONFIG_GUESS@-b2g-debug

@@ -1,3 +1,0 @@
-. ~/.mozconfigs/_common
-
-mk_add_options MOZ_OBJDIR=$MOZ_OBJDIR_PATH/obj-@CONFIG_GUESS@-opt

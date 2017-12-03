@@ -1,5 +1,0 @@
-. ~/.mozconfigs/_common
-
-mk_add_options MOZ_OBJDIR=$MOZ_OBJDIR_PATH/obj-@CONFIG_GUESS@-debug
-ac_add_options --enable-debug
-ac_add_options --enable-dmd
