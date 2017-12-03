@@ -77,9 +77,6 @@ set shiftwidth=4
 " Autowrite to buffers when hiding them
 set autowrite
 
-au BufRead,BufNewFile {*.textile} set ft=textile
-au BufRead,BufNewFile {*.jsm} set ft=javascript
-
 " Spelling options
 set spelllang=pt_br
 highlight clear SpellBad SpellLocal
