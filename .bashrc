@@ -38,7 +38,5 @@ function is_inside() {
 }
 
 if [ -n "$VIRTUAL_ENV" -a -n "$TMUX_PANE" ]; then
-    if is_inside "$VIRTUAL_ENV"; then
-        . "$VIRTUAL_ENV"/bin/activate
-    fi
+    . "$VIRTUAL_ENV"/bin/activate
 fi
